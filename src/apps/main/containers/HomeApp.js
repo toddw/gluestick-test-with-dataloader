@@ -34,8 +34,9 @@ export class HomeApp extends Component {
     const { todos } = this.props;
     return (
       <div>
-        <Helmet title="Home" />
-        <Link to="/404">404</Link>
+        <h1>Page 1</h1>
+        <Link to="/page2">Page 2</Link>
+        <p>The data on this page is not loaded on server side rendering but if you navigate to page 2 and then come back it will load</p>
         {todos.map((t, i) => <li key={i}>{t}</li>)}
       </div>
     );
