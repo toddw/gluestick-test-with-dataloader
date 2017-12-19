@@ -3,7 +3,6 @@
 import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import Helmet from "react-helmet";
 import { withDataLoader } from "compiled/gluestick";
 import { loadTodos } from "../actions/todos";
 import Link from "react-router/lib/Link";
@@ -28,6 +27,12 @@ export class HomeApp extends Component {
    * will wait for the promise to resolve before the container is loaded.
    */
   static gsBeforeRoute (/* {dispatch}, renderProps, query, serverProps */) {
+    // I would expect this to trigger the deprecation notice but it does not
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve({name: "Todd"});
+      }, 1000);
+    });
   }
 
   render () {
